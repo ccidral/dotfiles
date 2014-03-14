@@ -1,5 +1,7 @@
+DOTFILES=$HOME/.dotfiles
+
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.dotfiles/oh-my-zsh
+ZSH=$DOTFILES/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -76,3 +78,5 @@ if [[ -a ~/.envvars ]]
 then
   source ~/.envvars
 fi
+
+source $DOTFILES/git-flow-completion/git-flow-completion.zsh
