@@ -79,4 +79,16 @@ then
   source ~/.envvars
 fi
 
+platform=`uname | awk '{print tolower($0)}'`
+
+if [[ -a $DOTFILES/aliases-$platform ]]
+then
+  source $DOTFILES/aliases-$platform
+fi
+
+if [[ -a $DOTFILES/aliases ]]
+then
+  source $DOTFILES/aliases
+fi
+
 source $DOTFILES/git-flow-completion/git-flow-completion.zsh
