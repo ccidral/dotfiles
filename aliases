@@ -1,0 +1,31 @@
+# Find file by name
+function ff() {
+  find `pwd` \( ! -regex '.*/\..*' \) -type f -name "$1"
+}
+
+# Find file by extension
+function ffe() {
+  find `pwd` \( ! -regex '.*/\..*' \) -type f -name "*.$1"
+}
+
+# Find all files
+function ffs() {
+  find `pwd` \( ! -regex '.*/\..*' \) -type f
+}
+
+# Create new Maven project
+function mvnnew() {
+  GROUP_ID="$1"
+  ARTIFACT_ID="$2"
+  if [ -z "$GROUP_ID" ] || [ -z "$ARTIFACT_ID" ]; then
+    echo "Usage: mvnnew <groupId> <artifactId>"
+    exit 1
+  fi
+  mvn archetype:generate \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DinteractiveMode=false \
+    -DgroupId=$GROUP_ID \
+    -DartifactId=$ARTIFACT_ID \
+    -Dversion=1.0-SNAPSHOT
+}
